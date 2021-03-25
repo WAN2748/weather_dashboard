@@ -9,3 +9,7 @@ button {
     float: left;
 
 }
+
+form, p {
+    font-family: Montserrat;
+}
