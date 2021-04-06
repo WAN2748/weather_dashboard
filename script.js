@@ -8,13 +8,13 @@ var repoSearchTerm = document.querySelector('#selected-city');
 var formSubmitHandler = function (event) {
     event.preventDefault();
 
-    var cityname = nameInputEl.value.trim();
+    var cityName = nameInputEl.value.trim();
 
-    if (cityname) {
-        getUserCity(cityname);
+    if (cityName) {
+        getWeather(cityName);
 
         repoContainerEl.textContent = '';
-        nameInputEl.value = '';
+        cityName.value = '';
     } else {
         alert('Please enter a City for weather');
     }
@@ -28,7 +28,8 @@ var getWeather = function (city) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    displayCity(data, city);
+                   displayCity(data, city);
+                   
                 });
             } else {
                 alert('Error: ' + response.statusText);
@@ -39,7 +40,11 @@ var getWeather = function (city) {
         });
 };
 
+var displayCity = function (weatherData, city) {
+    
+    repoSearchTerm.innerText = city, weatherData;
 
+}
 
 
 userFormEl.addEventListener('submit', formSubmitHandler);
