@@ -16,6 +16,8 @@
     integrity="sha512-4erGAXsEsXF4aZeb9ye7RJadu03zIuEW0CzuEKgsCa3xrBj/smW1TDZ07ZiK7o5Yk96IB4iQgQ0LhqjFeHqtLg=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <title>Weather Dashboard</title>
 </head>
 
@@ -26,24 +28,43 @@
       <p>Search for weather by City<i class="fas fa-cloud-sun"></i></p>
     </div>
   </header>
-  
-    <form id="search-city">
-      <label class="col-form-label col-form-label-lg" for="inputLarge">Search For Weather by City</label>
-      <input class="form-control form-control-lg col-2" type="text" autofocus="true" placeholder="Enter City Here" id="inputname">
-      <button type="submit" value="Search City" class="btn btn-primary btn-lg">Search City</button>
-    </form>
- 
+
+  <form id="search-city">
+    <label class="col-form-label col-form-label-lg" for="inputLarge">Search For Weather by City</label>
+    <input class="form-control form-control-lg col-2" type="search" autofocus="true" placeholder="Enter City Here"
+      id="city-input">
+    <button type="submit" value="Search City" class="btn btn-primary btn-lg" id="submit-btn">Search City</button>
+  </form>
+
+  <ul class="list-group mt-2" id="city-list">
+  </ul>
+
 
   <div class="col-12 col-md-8">
-    <h2 class="subtitle">Weather For <span id="selected-city"></span></h2>
+    <h2 class="subtitle">Weather For: <span id="selected-city"></span></h2>
     <div id="weather-container"></div>
   </div>
 
+  <div class="col-lg-8">
+    <section class="card p-2" id="current" style="display:none;">
+      <h1 id="city"></h1>
+      <h5 id="date"></h5>
+      <p id="temp"></p>
+      <p id="humidity"></p>
+      <p id="wind"></p>
+      <p id="uv-index">UV Index: <span class="color"></span></p>
+    </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous"></script>
-    <script src= "script.js"></script>
+    <section class="mt-2 mb-2" id="five-day" style="display:none;">
+      <h3>5-Day Forecast:</h3>
+      <div class="card-deck">
+      </div>
+    </section>
+  </div>
+  </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
